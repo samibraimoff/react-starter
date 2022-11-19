@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
 import SelectedPokemon from "./SelectedPokemon";
+import { Wrapper, Title, Container, Input, List, Selected } from "./App.styles";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -15,15 +16,16 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1 className="title">Pokemon search</h1>
-      <input
+    <Wrapper>
+      <Title>Pokemon search</Title>
+      <Input
         type="text"
+        placeholder="Search for your pokemon"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
-      <div className="container">
-        <div className="list">
+      <Container>
+        <List>
           <table>
             <thead>
               <tr>
@@ -48,14 +50,14 @@ function App() {
                 ))}
             </tbody>
           </table>
-        </div>
+        </List>
         {selected && (
-          <div className="selected">
+          <Selected>
             <SelectedPokemon pokemon={selected} />
-          </div>
+          </Selected>
         )}
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
   );
 }
 

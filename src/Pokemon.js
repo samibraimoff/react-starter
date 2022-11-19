@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import { Button } from "./Pokemon.styles";
+
 Pokemon.propTypes = {
   pokemon: PropTypes.shape({
     name: PropTypes.shape({
@@ -15,7 +17,7 @@ function Pokemon({ pokemon, onSelect }) {
     <tr>
       <td>{pokemon.name.english}</td>
       <td>{pokemon.type.join(", ")}</td>
-      <button onClick={() => onSelect(pokemon)}>Selected!</button>
+      <Button onClick={() => onSelect(pokemon)}>Selected!</Button>
     </tr>
   );
 }
