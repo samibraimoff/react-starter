@@ -1,6 +1,7 @@
 import "./App.css";
 
 import pokemon from "./pokemon.json";
+import Pokemon from "./Pokemon";
 
 function App() {
   return (
@@ -15,15 +16,14 @@ function App() {
 
       <table>
         <thead>
-          <th>Name</th>
-          <th>Type</th>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+          </tr>
         </thead>
         <tbody>
           {pokemon.slice(0, 10).map((el) => (
-            <tr key={el.id}>
-              <td>{el.name.english}</td>
-              <td>{el.type.join(", ")}</td>
-            </tr>
+            <Pokemon key={el.id} pokemon={el} />
           ))}
         </tbody>
       </table>
