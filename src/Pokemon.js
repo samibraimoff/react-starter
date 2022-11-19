@@ -6,14 +6,16 @@ Pokemon.propTypes = {
       name: PropTypes.string,
     }),
     type: PropTypes.arrayOf(PropTypes.string),
+    onSelect: PropTypes.func,
   }),
 };
 
-function Pokemon({ pokemon }) {
+function Pokemon({ pokemon, onSelect }) {
   return (
     <tr>
       <td>{pokemon.name.english}</td>
       <td>{pokemon.type.join(", ")}</td>
+      <button onClick={() => onSelect(pokemon)}>Selected!</button>
     </tr>
   );
 }

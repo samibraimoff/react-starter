@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.container {
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  flex: 3;
+}
+
+.selected {
+  flex: 1;
+}
+
 table {
   width: 100%;
 }
