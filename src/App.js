@@ -1,12 +1,19 @@
 import "./App.css";
-import { useState } from "react";
-import pokemon from "./pokemon.json";
+import { useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
 import SelectedPokemon from "./SelectedPokemon";
 
 function App() {
   const [filter, setFilter] = useState("");
   const [selected, setSelected] = useState(null);
+  const [pokemon, setPokemon] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/pokemon.json")
+      .then((response) => response.json())
+      .then((data) => setPokemon(data));
+  }, []);
+
   return (
     <div>
       <h1 className="title">Pokemon search</h1>
